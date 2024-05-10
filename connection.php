@@ -27,6 +27,31 @@
         echo $res;
     }
 
+    function updtaeRec($id,$fullname,$email,$password,$number,$mark){
+        $this->connect();
+    
+        $q= "UPDATE `student` SET `fulll_name`='$fullname',`email`='$email',`password`='$password',`number`='$number',`marks`='$mark' WHERE id=$id";
+        echo $q;
+        $res=mysqli_query($this->conn,$q);
+        echo $res;
+    }
+
+    function deleteRec($id){
+        $this->connect();
+    
+        $q= "delete from student where id=$id";
+        echo $q."</br>";
+        $res=mysqli_query($this->conn,$q);
+        echo $res;
+    }
+
+    function getStudentData($id){
+        $this->connect();
+        $q="select * from student where id=$id";
+        $res=mysqli_query($this->conn,$q);
+        return $res;
+    }
+
     function getData(){
         $this->connect();
 
