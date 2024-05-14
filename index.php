@@ -28,12 +28,7 @@ if (isset($_REQUEST["btn-delete"])) {
 $studentRecord = null;
 if (isset($_REQUEST["btn-edit"])) {
   $id = $_GET["id"];
-  
-  // $name = $_GET["fullName"];
-  // $email = $_GET["email"];
-  // $number = $_GET["num"];
-  // $mark = $_GET["mark"];
-  // $pass = $_GET["pass"];
+
   $studentRes = $connection->getStudentData($id);
   $studentRecord=mysqli_fetch_array($studentRes);
   // $connection->insertRec($name, $email, $pass, $number, $mark);
@@ -64,7 +59,7 @@ if (isset($_REQUEST["btn_update_record"])) {
   $pass = $_GET["pass"];
   
 
-  $connection->updtaeRec($s_id,$name, $email, $pass, $number, $mark);
+  $connection->updateRec($s_id,$name, $email, $pass, $number, $mark);
   header("Location: index.php");
 
 } 
