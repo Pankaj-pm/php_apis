@@ -9,24 +9,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    
-
-    $passHash=password_hash($password,PASSWORD_DEFAULT);
-
-
 
     include("connection.php");
     $connection=new Connection();
     $connection->connect();
 
-    $res=$connection->login($email,$passHash);   
+    $res=$connection->login($email);   
     $sData=mysqli_fetch_assoc($res);
+
     if($sData!=null){
         $response["result"]="Success";
-        $response["data"]=$sData;
+        
+        $vp=password_verify($password,$sData["password"]);
+        if($vp){
+            $response["result"]="Success";
+            $response["data"]=$sData;
+            
+        }else{
+            $response["result"]="Error";
+            $response["message"]="Invalid User Password";
+        }
+       
     }else{
         $response["result"]="Error";
-        $response["message"]="Invalid User email or password";
+        $response["message"]="Invalid User email";
     }
 
 

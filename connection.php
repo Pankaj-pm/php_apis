@@ -33,10 +33,10 @@
         echo $res;
     }
 
-    function login($email,$pass){
+    function login($email){
         $this->connect();
-        $q= "select * from student where email='$email' and password='$pass'";
-    
+        $q= "select * from student where email='$email'";
+        // echo $q;
         $res=mysqli_query($this->conn,$q);
 
         return $res;
