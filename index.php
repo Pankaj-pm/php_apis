@@ -95,6 +95,7 @@ if (isset($_REQUEST["btn_update_record"])) {
       <thead>
         <tr>
           <th scope="col">Id</th>
+          <th scope="col">Image</th>
           <th scope="col">Full Name</th>
           <th scope="col">Email</th>
           <th scope="col">Number</th>
@@ -108,6 +109,7 @@ if (isset($_REQUEST["btn_update_record"])) {
           echo '<tr>
           <form method="GET" action="">
                 <th scope="row">' . $data["id"] . '</th>
+                <td><img src="images/'.$data["image"].'" width="100" height="100"></td>
                 <td>' . $data["fulll_name"] . '</td>
                 <td>' . $data["email"] . '</td>
                 <td>' . $data["number"] . '</td>

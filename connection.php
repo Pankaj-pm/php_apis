@@ -17,10 +17,10 @@
         }
     }
 
-    function insertRec($fullname,$email,$password,$number,$mark,$insertby){
+    function insertRec($fullname,$email,$password,$number,$mark,$img,$insertby){
         $this->connect();
     
-        $q= "INSERT INTO `student`(`fulll_name`, `email`, `password`, `number`, `marks`,`insert_by`) VALUES ('$fullname','$email','$password','$number','$mark','$insertby')";
+        $q= "INSERT INTO `student`(`fulll_name`, `email`, `password`, `number`, `marks`,`image`,`insert_by`) VALUES ('$fullname','$email','$password','$number','$mark','$img','$insertby')";
         $res=mysqli_query($this->conn,$q);
         echo $res;
     }
